@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Recipes</h1>
 
 <table>
@@ -21,7 +20,7 @@
         <td><%= recipe.ingredients %></td>
         <td><%= recipe.instruction %></td>
         <td><%= recipe.hits %></td>
-        <td><%= recipe.image %></td>
+        <td><%= image_tag("recipe.jpg",size: "100x100") %></td>
         <td><%= link_to 'Show', recipe %></td>
         <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
         <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,4 +31,6 @@
 
 <br>
 
-<%= link_to 'New Recipe', new_recipe_path %>
+<% if signed_in? %>
+  <%= link_to 'New Recipe', new_recipe_path %>
+<% end %>

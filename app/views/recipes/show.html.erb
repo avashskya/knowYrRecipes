@@ -17,8 +17,9 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @recipe.image %>
+  <%= image_tag("recipe.jpg",size: "200x200") %>
 </p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Edit', edit_recipe_path(@recipe) %>
+|
 <%= link_to 'Back', recipes_path %>
