@@ -1,5 +1,6 @@
-<h1>New Recipe</h1>
+<center>
+  <h1>New Post</h1>
+  <%= render 'form', recipe: @recipe %>
 
-<%= render 'form', recipe: @recipe %>
-
-<%= link_to 'Back', recipes_path %>
+  <%= link_to 'Back', recipes_path, class: 'btn btn-light mt-2'%>
+</center>

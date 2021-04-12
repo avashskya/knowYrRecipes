@@ -27,7 +27,6 @@ class RecipesController < ApplicationController
 
   # POST /recipes or /recipes.json
   def create
-    # before_action :require_login
     @recipe = current_user.recipes.build(recipe_params)
 
     respond_to do |format|

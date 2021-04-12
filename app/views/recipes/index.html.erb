@@ -1,50 +1,51 @@
 <p id="notice"><%= notice %></p>
-<center>
-  <h1>Recipes</h1>
-  <%= search_form_for @q do |f| %>
-  <%= f.search_field :name_or_ingredients_cont %>
-  <%= f.submit name:'' %>
-<% end %>
-</center>
+<div>
+  <center>
+    <h1>
+      <%= link_to 'KnowYrRecipes', recipes_path %>
+    </h1>
+    <div align="right">
+      <%= search_form_for @q do |f| %>
+      <%= f.search_field :name_or_ingredients_cont %>
+      <%= f.submit name:'' %>
+    <% end %>
+    <br>
+    <% if signed_in? %>
+      <%= link_to 'New Recipe', new_recipe_path %>
+    <% end %>
+  </div>
+  <table id="recipes" width="50%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <!-- <th>Ingredients</th> <th>Instruction</th> -->
+        <!-- <th>Image</th> -->
+        <th>Views</th>
+        <th>Actions</th>
+        <th></th>
+      </tr>
+    </thead>
 
-<table id="recipes">
-<thead>
-  <tr>
-    <th>Name</th>
-    <th>Ingredients</th>
-    <th>Instruction</th>
-    <th>Views</th>
-    <!-- <th>Image</th> -->
-    <th colspan="3">Actions</th>
-  </tr>
-</thead>
-
-<tbody>
-  <% @recipes.each do |recipe| %>
-    <tr>
-      <td><%= recipe.name %></td>
-      <td><%= recipe.ingredients %></td>
-      <td><%= recipe.instruction %></td>
-      <td><%= recipe.hits %></td>
-
-      <td><%= link_to 'Show', recipe %></td>
-      <td>
-        <% if signed_in? %>
-          <%if current_user.id == recipe.user_id %>
-            <%= link_to 'Edit', edit_recipe_path(recipe) %>
+    <tbody>
+      <% @recipes.each do |recipe| %>
+        <tr>
+          <td align="center"><%= recipe.name %></td>
+          <td align="center"><%= recipe.hits %></td>
+          <td align="center"><%= link_to 'Show', recipe %></td>
+          <td width="100">
+            <% if signed_in? %>
+              <%if current_user.id == recipe.user_id %>
+                <%= link_to 'Edit', edit_recipe_path(recipe) %>
+                <%= link_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' }%>
+              <% end %>
+            <% end %>
           </td>
-          <td>
-            <%= link_to 'Delete', recipe, method: :delete, data: { confirm: 'Are you sure?' }%>
-          <% end %>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-</tbody>
-</table>
 
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</center>
 <br>
 
-<% if signed_in? %>
-<%= link_to 'New Recipe', new_recipe_path %>
-<% end %>
+<div>

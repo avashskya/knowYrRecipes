@@ -12,26 +12,28 @@
   </div>
 <% end %>
 
-<div class="field">
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-</div>
+<h1></h1>
+<div>
+  <table id="recipes" width="50%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Ingredients</th>
+        <th>Instruction</th>
+        <th>Image</th>
+      </tr>
+    </thead>
 
-<div class="field">
-  <%= form.label :ingredients %>
-  <%= form.text_area :ingredients %>
+    <tbody>
+      <tr>
+        <td align="center"><%= form.text_field :name %></td>
+        <td align="center"><%= form.text_area :ingredients %></td>
+        <td align="center"><%= form.text_area :instruction %></td>
+        <td align="center"><%= image_tag("recipe.jpg",size: "200x200") %></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
-<div class="field">
-  <%= form.label :instruction %>
-  <%= form.text_area :instruction %>
-</div>
-
-<div class="field">
-  <%= form.label :image %>
-  <%= image_tag("recipe.jpg",size: "200x200") %>
-</div>
-
 <div class="actions">
   <%= form.submit %>
 </div>

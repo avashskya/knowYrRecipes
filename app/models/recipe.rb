@@ -4,5 +4,6 @@ class Recipe < ApplicationRecord
   validates :ingredients, presence: true
   validates :instruction, presence: true
   belongs_to :user
+  has_many :comments
   acts_as_punchable
 end

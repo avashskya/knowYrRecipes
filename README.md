@@ -1,24 +1,25 @@
-# README
+KnowYrRecipes
+============
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby version ~ 3.0.0
 
-Things you may want to cover:
+Configuration
 
-* Ruby version
+__In the terminal run:__
 
-* System dependencies
+    bundle install
+    rails db:migrate
 
-* Configuration
+Additional gems used
 
-* Database creation
+    punching_bag ~ view count
 
-* Database initialization
+    clearance ~ signin/signup
 
-* How to run the test suite
+    ransack ~ search
 
-* Services (job queues, cache servers, search engines, etc.)
+Additional Info
 
-* Deployment instructions
+    User has to be logged-in in order to create new recipes
 
-* ...
+    Search can be performed using ether recipe names or ingredients used 
